@@ -1,0 +1,13 @@
+C:\Users\FamilySilvaFelix\Documents\ESTUDOS\SENAI\Aula27DadosExcel\bin\Debug\netcoreapp3.1\Aula27DadosExcel.exe
+C:\Users\FamilySilvaFelix\Documents\ESTUDOS\SENAI\Aula27DadosExcel\bin\Debug\netcoreapp3.1\Aula27DadosExcel.deps.json
+C:\Users\FamilySilvaFelix\Documents\ESTUDOS\SENAI\Aula27DadosExcel\bin\Debug\netcoreapp3.1\Aula27DadosExcel.runtimeconfig.json
+C:\Users\FamilySilvaFelix\Documents\ESTUDOS\SENAI\Aula27DadosExcel\bin\Debug\netcoreapp3.1\Aula27DadosExcel.runtimeconfig.dev.json
+C:\Users\FamilySilvaFelix\Documents\ESTUDOS\SENAI\Aula27DadosExcel\bin\Debug\netcoreapp3.1\Aula27DadosExcel.dll
+C:\Users\FamilySilvaFelix\Documents\ESTUDOS\SENAI\Aula27DadosExcel\bin\Debug\netcoreapp3.1\Aula27DadosExcel.pdb
+C:\Users\FamilySilvaFelix\Documents\ESTUDOS\SENAI\Aula27DadosExcel\obj\Debug\netcoreapp3.1\Aula27DadosExcel.csprojAssemblyReference.cache
+C:\Users\FamilySilvaFelix\Documents\ESTUDOS\SENAI\Aula27DadosExcel\obj\Debug\netcoreapp3.1\Aula27DadosExcel.csproj.CoreCompileInputs.cache
+C:\Users\FamilySilvaFelix\Documents\ESTUDOS\SENAI\Aula27DadosExcel\obj\Debug\netcoreapp3.1\Aula27DadosExcel.AssemblyInfoInputs.cache
+C:\Users\FamilySilvaFelix\Documents\ESTUDOS\SENAI\Aula27DadosExcel\obj\Debug\netcoreapp3.1\Aula27DadosExcel.AssemblyInfo.cs
+C:\Users\FamilySilvaFelix\Documents\ESTUDOS\SENAI\Aula27DadosExcel\obj\Debug\netcoreapp3.1\Aula27DadosExcel.dll
+C:\Users\FamilySilvaFelix\Documents\ESTUDOS\SENAI\Aula27DadosExcel\obj\Debug\netcoreapp3.1\Aula27DadosExcel.pdb
+C:\Users\FamilySilvaFelix\Documents\ESTUDOS\SENAI\Aula27DadosExcel\obj\Debug\netcoreapp3.1\Aula27DadosExcel.genruntimeconfig.cache
