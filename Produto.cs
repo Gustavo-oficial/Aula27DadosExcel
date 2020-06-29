@@ -15,6 +15,13 @@ namespace Aula27DadosExcel
        
         public Produto()
         {         
+            string pasta = PATH.Split('/')[0];
+
+            if(!Directory.Exists(pasta))
+            {
+                Directory.CreateDirectory(pasta);
+            }
+            
             if(!File.Exists(PATH))
             {
                 File.Create(PATH).Close();
