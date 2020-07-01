@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace Aula27DadosExcel
 {
@@ -31,37 +32,67 @@ namespace Aula27DadosExcel
         }
           public void Registrar(Produto prod){
             
-            var linha = new string []  { CriarLinha(prod)};
+            string [] linha = new string []  { CriarLinha(prod)};
             File.AppendAllLines(PATH, linha);
           }
 
 
-          public List<Produto> Ler()
-          {
-            List<Produto> produto = new List<Produto>();
+           public List<Produto> Ler()
+        {
 
-            string []  linhas = File.ReadAllLines(PATH);
+            List<Produto> produtos = new List<Produto>();
 
+            string[] linhas = File.ReadAllLines(PATH);
+
+            // Varremos nossas linhas
             foreach(string linha in linhas)
             {
-              string[] dado = linha.Split(";");
 
-              Produto p = new Produto();
+                string[] dado = linha.Split(";");
 
-              p.codigo = Int32.Parse( Separar (dado[0]));
-              p.Nome = Separar (dado [1]);
-              p.Preco = float.Parse(Separar (dado[2]));
+                Produto p   = new Produto();
+                p.codigo    = Int32.Parse( Separar(dado[0]) );
+                p.Nome      = Separar(dado[1]);
+                p.Preco     = float.Parse( Separar(dado[2]) );
 
-              produto.Add(p);
+                produtos.Add(p);
             }
-            return produto;
-          }  
+            produtos = produtos.OrderBy(z => z.Nome).ToList();
+            return produtos;
+        }
 
-          public string Separar(string dado){
+
+        // o metodo busca um codigo e nome dentro dos produtos 
+          public List<Produto> Buscar(string _nome)
+        {
+            return Ler().FindAll(x => x.Nome == _nome);
+        }
+
+        // metodo para remover um produto e mostrar as outras linhas
+        public void Excluir(string _termo){
+            List<string> linhas = new List<string>();
+
+            using(StreamReader file = new StreamReader(PATH)){
+              string linha;
+              while ((linha = file.ReadLine()) != null)
+              {
+                   linhas.Add(linha);
+              }
+              linhas.RemoveAll(z => z.Contains(_termo));
+            }
+
+            using(StreamWriter output = new StreamWriter(PATH)){
+              output.Write(String.Join(Environment.NewLine, linhas.ToArray()));
+            }
+
+        }
+    
+        public string Separar(string dado)
+        {
             return dado.Split("=")[1];
-          }
+        }
         private string CriarLinha(Produto p){
-              return $"{p.codigo};{p.Nome};{p.Preco}";
+              return $"{p.codigo};{p.Nome};{p.Preco} \n";
           }
         }
     }

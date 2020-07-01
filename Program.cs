@@ -9,10 +9,11 @@ namespace Aula27DadosExcel
         {
            Produto p1 = new Produto();
            p1.codigo =1;
-           p1.Nome = "Televisão 70'";
+           p1.Nome = "TV 70'";
            p1.Preco = 6000f;
 
            p1.Registrar(p1);
+         
 
            List<Produto> lista = p1.Ler();
 
