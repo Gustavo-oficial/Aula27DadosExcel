@@ -39,7 +39,7 @@ namespace Aula27DadosExcel
 
            public List<Produto> Ler()
         {
-
+      
             List<Produto> produtos = new List<Produto>();
 
             string[] linhas = File.ReadAllLines(PATH);

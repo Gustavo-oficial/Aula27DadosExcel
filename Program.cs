@@ -13,6 +13,7 @@ namespace Aula27DadosExcel
            p1.Preco = 6000f;
 
            p1.Registrar(p1);
+           p1.Excluir("2000");
          
 
            List<Produto> lista = p1.Ler();
