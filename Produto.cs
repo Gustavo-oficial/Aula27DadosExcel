@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Aula27DadosExcel
 {
-    public class Produto
+    public class Produto : IProduto
     {
         
         public string Nome { get; set; }
@@ -14,14 +14,15 @@ namespace Aula27DadosExcel
 
         public float Preco { get; set; }
 
+        public string _termo;
+
         private const string PATH = "Database/produto.csv";
        
         public Produto()
         {         
             string pasta = PATH.Split('/')[0];
 
-            if(!Directory.Exists(pasta))
-            {
+            if(!Directory.Exists(pasta)){
                 Directory.CreateDirectory(pasta);
             }
             
@@ -51,8 +52,8 @@ namespace Aula27DadosExcel
                 string[] dado = linha.Split(";");
 
                 Produto p   = new Produto();
-                p.codigo    = Int32.Parse( Separar(dado[0]) );
-                p.Nome      = Separar(dado[1]);
+                p.codigo    = Int32.Parse( Separar(dado[1]) );
+                p.Nome      = Separar(dado[0]);
                 p.Preco     = float.Parse( Separar(dado[2]) );
 
                 produtos.Add(p);
@@ -71,18 +72,44 @@ namespace Aula27DadosExcel
         // metodo para remover um produto e mostrar as outras linhas
         public void Excluir(string _termo){
             List<string> linhas = new List<string>();
+            {
+              ReescreverLinha(linhas, _termo);
+              linhas.RemoveAll(z => z.Contains(_termo));
+            }
+              // output.Write(String.Join(Environment.NewLine, linhas.ToArray()));
+            ReescreverCsv(linhas);
+        }
 
-            using(StreamReader file = new StreamReader(PATH)){
+        public void Alterar(Produto _produtoalterado){
+          
+         List<string> linhas = new List<string>();
+
+            using(StreamReader arquivo = new StreamReader(PATH))
+            {
+                string linha;
+                while((linha = arquivo.ReadLine()) != null){
+                    linhas.Add(linha);
+                }
+            }
+          linhas.RemoveAll(z => z.Split(";")[0].Contains(_produtoalterado.codigo.ToString()));
+        
+        }
+        private void ReescreverCsv(List<string> lines){
+             
+             using(StreamWriter output = new StreamWriter(PATH)){
+              foreach(string ln in lines){
+                output.Write(ln + "\n");
+              }
+            }
+        }
+
+        private void ReescreverLinha(List<string> lines, string _termo){
+              using(StreamReader file = new StreamReader(PATH)){
               string linha;
               while ((linha = file.ReadLine()) != null)
               {
-                   linhas.Add(linha);
+                   lines.Add(linha);
               }
-              linhas.RemoveAll(z => z.Contains(_termo));
-            }
-
-            using(StreamWriter output = new StreamWriter(PATH)){
-              output.Write(String.Join(Environment.NewLine, linhas.ToArray()));
             }
 
         }
